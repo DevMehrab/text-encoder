@@ -30,7 +30,7 @@ export const MainContent = () => {
         <main>
           <TextField state={state} input={input} setInput={setInput} placeholder={placeholder} setOutput={setOutput} />
           <div>
-            <h3>{input === "" ? "Output:" : outputMessage}</h3>
+            <h3>{output === "" ? "Output:" : outputMessage}</h3>
             <div className="p-4 pr-16 relative my-4 bg-white w-full h-80 rounded ">
               <p className="h-full overflow-y-auto">
                 {output}

@@ -2,14 +2,17 @@ import React from "react";
 import data from "../data";
 export const TextField = ({ state, placeholder, input, setInput, setOutput }) => {
     function handleInput(e) {
-            setInput('')
-            setInput(e.target.value)
+        setInput('')
+        setInput(e.target.value)
         if (state === "Text to Code") {
             const text = e.target.value
             const array = text.split("")
             let encodedDataArray = []
             array.forEach(element => {
-                encodedDataArray.push(data[element])
+                if (data[element]) {
+                    console.log('yes');
+                    encodedDataArray.push(data[element])
+                }
             });
             let encodedData = encodedDataArray.join('')
             setOutput(encodedData)
@@ -25,16 +28,18 @@ export const TextField = ({ state, placeholder, input, setInput, setOutput }) =>
 
             let encodedDataArray = []
             for (let index = 0; index < array.length; index = index + 5) {
+                if (reversedData[array.slice(index, index + 5).join('')]) {
+                    encodedDataArray.push(reversedData[array.slice(index, index + 5).join('')])
 
-                encodedDataArray.push(reversedData[array.slice(index, index + 5).join('')])
+                }
             }
             let encodedData = encodedDataArray.join('')
             setOutput(encodedData)
         }
     }
-function handlePaste(){
-    setInput('')
-}
+    function handlePaste() {
+        setInput('')
+    }
 
     return (
         <>
