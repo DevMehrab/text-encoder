@@ -10,7 +10,7 @@ function App() {
         <div className="flex flex-col xl:flex-row w-full sm:pt-12">
           <TextContent />
           <MainContent />
-          <Footer/>
+          <Footer />
         </div>
       </div>
     </div>
